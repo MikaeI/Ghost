@@ -593,12 +593,14 @@ const configureGrunt = function (grunt) {
                 }]
             });
             if (!grunt.option('skip-tests')) {
-                grunt.task.run(['update_submodules:pinned', 'subgrunt:init', 'test-all', 'clean:built', 'clean:tmp', 'prod', 'clean:release', 'copy:admin_html', 'copy:release', 'compress:release']);
+                grunt.task.run(['update_submodules:pinned', 'subgrunt:init', 'test-all', 'clean:tmp', 'prod', 'clean:release', 'copy:admin_html', 'copy:release', 'compress:release']);
+                // grunt.task.run(['update_submodules:pinned', 'subgrunt:init', 'test-all', 'clean:built', 'clean:tmp', 'prod', 'clean:release', 'copy:admin_html', 'copy:release', 'compress:release']);
             } else {
                 grunt.log.writeln(chalk.red(
                     chalk.bold('Skipping tests...')
                 ));
-                grunt.task.run(['update_submodules:pinned', 'subgrunt:init', 'clean:built', 'clean:tmp', 'prod', 'clean:release', 'copy:admin_html', 'copy:release', 'compress:release']);
+                grunt.task.run(['update_submodules:pinned', 'subgrunt:init', 'clean:tmp', 'prod', 'clean:release', 'copy:admin_html', 'copy:release', 'compress:release']);
+                // grunt.task.run(['update_submodules:pinned', 'subgrunt:init', 'clean:built', 'clean:tmp', 'prod', 'clean:release', 'copy:admin_html', 'copy:release', 'compress:release']);
             }
         }
     );
